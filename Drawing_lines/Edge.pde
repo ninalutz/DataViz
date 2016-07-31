@@ -1,110 +1,55 @@
-ArrayList<Edge> all = new ArrayList<Edge>();
-ArrayList<Edge> blue = new ArrayList<Edge>();
-ArrayList<Edge> orange = new ArrayList<Edge>();
-ArrayList<Edge> purple = new ArrayList<Edge>();
-ArrayList<Node> OD = new ArrayList<Node>();
-ArrayList<Node> Network = new ArrayList<Node>();
-int duration;
-color[] colarray = new color[3];
+/*EDGE Class
 
+Every edge has a speed, thickness, color, type, origin, destination, id, and an origin and destination id
 
-//generates a network of edges
-void generate(){
-    //sets colors
-    colarray[0] = color(255,140,0); //orange; orange
-    colarray[1] = color(239, 205, 255); //purple; purple
-    colarray[2] = color(0, 102, 200); //blue; blue
-    
-   for(int i = 0; i<50; i++){
-        PVector location = new PVector(random(50, width-50), random(50, height-50));
-        Node node = new Node(location, i, 0);
-        OD.add(node);
-    }
-    
-    //generates arrays of edges
-    for(int i = 0; i<20; i++){
-        int k = int(random(0, 3));
-        int j = int(random(0, OD.size()));
-        int h = int(random(0, OD.size()));
-        int amount = int(random(5, 40));
-        Edge edge = new Edge(OD.get(j).location, OD.get(h).location, increment, amount, colarray[k]);
-        
-        Network.add(OD.get(j));
-        Network.add(OD.get(h));
-        
-        all.add(edge);
-        
-        //adds edges to their appropriate arrays
-        if(k == 2){
-          blue.add(edge);
-        }
-        if(k == 0){
-          orange.add(edge);
-        }
-        if(k == 1){
-          purple.add(edge);
-        }
-    }
-}
+Therefore each edge knows what towers it goes between 
 
-public class Node{
-  PVector location; 
-  int id;
-  int total;
-  ArrayList <Edge> edges = new ArrayList<Edge>();
-  
-  Node(PVector _location, int _id, int _total){
-        location = _location;
-        id = _id;
-        total = _total;
-            }
-            
-  
-  void drawNetworkNodes(){
-        noStroke();
-        fill(#ffff00, 200);
-        ellipse(location.x, location.y, 30, 30);
-      }
-      
- void drawNodes(){
-        noStroke();
-        fill(#ffff00, 50);
-        ellipse(location.x, location.y, 30, 30);
-        textSize(18);
-        fill(#ff0000);
-        text(str(id), location.x+15, location.y-5);
-     } 
-  
-}
+This code sets the increment as universal, but it can be set differently for different edges 
 
-//Edge class 
+To draw the line animations, you have to consider the four cases of lines and draw accordingly
+
+There is a "pause" function in here that just draws stagnant lines 
+*/
+
 public class Edge {
+    //speed of animation
     private float increment;
     private PVector origin, destination;
-    private color type; 
-    private int amount;
+    private color language; 
+    int amount, type, origin_id, destination_id, id;
     
     //constructor
-          Edge(PVector _origin, PVector _destination, float _increment, int _amount, color _type){
+          Edge(PVector _origin, PVector _destination, float _increment, int _amount, color _language, int _type, int _oi, int _di, int _id){
               increment = _increment; 
               origin = _origin;
               destination = _destination;
               amount = _amount; 
-              type = _type; 
-              
+              language = _language; 
+              type = _type;
+              origin_id = _oi;
+              destination_id = _di;
+              id = _id;
           }
     
     //draw lines
+    public void pauseEdge(){
+      stroke(language, 250);
+      fill(language, 250);
+      strokeWeight(amount);
+        line(origin.x, origin.y, destination.x, destination.y);
+            if(origin.x == destination.x && origin.y == destination.y){
+               fill(language, 200);
+               ellipse(origin.x, origin.y, amount, amount);
+             }
+      }
+        
     public void drawEdge(){
-        stroke(type, 200);
-        fill(type, 200);
-        strokeWeight(amount);
         float x = origin.x; 
         float y = origin.y;
         float xspeed = abs(destination.x-origin.x)*increment;
         float yspeed = abs(destination.y-origin.y)*increment;
         
-     //there are 4 cases of lines and need to cover purple 4 to preserve the orientation of going from origin to destination 
+     //there are 4 cases of lines and need to cover all 4 to preserve the orientation of going from origin to destination 
      //case 1: line moving down and right
       if(origin.x <= destination.x && origin.y <= destination.y){ //<>//
             if(x+(millis()-initialTime)*xspeed < destination.x && y+(millis()-initialTime)*yspeed < destination.y){
@@ -162,7 +107,6 @@ public class Edge {
         }
         
       if(origin.x == destination.x && origin.y == destination.y){
-         fill(type, 200);
          ellipse(origin.x, origin.y, amount, amount);
        }
       

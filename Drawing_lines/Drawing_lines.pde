@@ -1,35 +1,61 @@
 /*
-This is a simplified, randomized version (basicpurpley skeleton code) of part of a data visualization I'm writing for my lab at Changing Places. 
-But I thought it was nice becuase it's actually a bit tricky to loop sketches in Processing and draw lines smoothly and fast
+MIT Media Lab, Changing Places Group, Summer 2016
 
-This script creates a random network of nodes and edges and animates them
+Drawing Lines Script by Nina Lutz, nlutz@mit.edu
+Made for CDR Network Visualization for the Andorra CityScope Project, MIT Media Lab, Changing Places
 
-You can adjust the number of nodes created, the speed, and toggle different edges
+Supervisor: Ira Winder, jiw@mit.edu 
+Joint Supervisor (on this script): Arnaud Gringrad
 
-This is the first version, so it's a bit messy
+This script generates a random network of nodes and edges and displays a looping animation of the edges traveling from their orgins to destination
+This is an abstract component, but in the real visualization the nodes are cell phone towers and the edges are amounts of different nationalities going between them
 
-Supervisor: Ira Winder
-Developer: Nina Lutz, MIT Media Lab, Changing Places Group
+Obviously you can change these colors to not match nationalities
+
+The programmer can define the number of nodes generated, number of edges, the increment (speed), delay between loops and add more types/colors/langauges of the edges
+
+Users can hover over a particular node for information on it 
+
+Users can click on a node to see the animation of this node's network 
+
+Different key commands also toggle display options
+
+This script uses two classes; Node and Edge 
+
+
 */
-
 
 //delay between loops (in milliseconds)
 int delay = 1000;
+//speed for the edges, you could also set this individually
 float increment = .0005;
+
+//numbers for generating network
+int numnodes = 85;
+int numedges = 50;
+int numClicks;
+
+//duration of animation
+int duration, sel, mini;
+//initialTime, loops per animation
 long initialTime;
-boolean needLoop = false;
+//booleans for controling the animation and showing displays, set at false for setup
+boolean miniNetwork, needLoop, showInfo;
   
 void setup(){
- size(1200, 800, P3D);
+ size(1400, 800, P3D);
  initialTime = millis();
  
  //generates the network
  generate();
+ analyzer();
  smooth();
 }
 
 void draw(){
-  background(0);
+  background(10);
+  drawLegend();
+  
   //resets initial time apporpriately after one iteration and delay
   if(needLoop){
     initialTime += duration;
@@ -37,18 +63,67 @@ void draw(){
     needLoop = !needLoop;
   }
   
+  
+  if(!pause){  
+  if(drawOther){
+    drawNetwork(other);
+  }
+  if(drawFrench){
+    drawNetwork(french);
+  }
+  if(drawSpanish){
+    drawNetwork(spanish);
+  }
+  }
+  
+  if(showInfo){
+    drawInfo(sel);
+  }
+  
+   if(miniNetwork){
+    miniNetwork(mini);
+  }
+  
+  if(pause){
+    if(drawOther){
+      drawPaused(other);
+    }
+    if(drawSpanish){
+      drawPaused(spanish);
+    }
+    if(drawFrench){
+      drawPaused(french);
+    }
+  }
+  
+   for(int i = 0; i<Network.size(); i++){
+        if(abs(mouseX-Network.get(i).location.x) <= 15 && abs(mouseY-Network.get(i).location.y) <= 15){
+             showInfo = true;
+             sel = i;
+        }
+      }
+    
   if(showTowers){
     drawNodes();
   }
+  
+  textSize(14);
+  fill(255);
+  text("Nina Lutz, MIT Media Lab", 20, 20);
 
-  if(drawblue){
-    drawNetwork(blue);
-  }
-  if(draworange){
-    drawNetwork(orange);
-  }
-  if(drawpurple){
-    drawNetwork(purple);
-  }
+}
 
+
+void mouseClicked(){
+  int x = mouseX;
+  int y = mouseY;
+      for(int i = 0; i<Network.size(); i++){
+        if(abs(x-Network.get(i).location.x) <= 15 && abs(y-Network.get(i).location.y) <= 15){
+            mini = i;
+            miniNetwork = true;
+        }
+        else if(x>width-200 || y > height-200){
+          miniNetwork = false;
+        }
+      }
 }

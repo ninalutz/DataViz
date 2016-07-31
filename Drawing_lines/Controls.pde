@@ -1,66 +1,58 @@
-boolean drawblue = true;
-boolean draworange = true; 
-boolean drawAll= true;
+boolean drawFrench = true;
+boolean drawSpanish = true; 
+boolean drawOther = true;
 boolean showTowers = true;
-boolean drawpurple = true;
+boolean drawAll = true;
+boolean pause;
 
 void keyPressed(){
   switch(key){
   case 'n':
       //generates new random network
       key_n();
+      break; 
+  case 'f':
+      drawFrench = !drawFrench;
       break;
-  case 'x':
-      //generates new random network, doens't clear (fun mode)
-      generate();
-      break;    
-  case 'b':
-      drawblue = !drawblue;
+  case 's':
+      drawSpanish = !drawSpanish;
       break;
   case 'o':
-      draworange = !draworange;
-      break;
-  case 'p':
-      drawpurple = !drawpurple;
+      drawOther = !drawOther;
       break;
   case 'a':
       //toggles drawing of all the lines
       drawAll = !drawAll;
       if(drawAll){
-      drawblue = true;
-      draworange = true;
-      drawpurple = true;
+      drawFrench = true;
+      drawSpanish = true;
+      drawOther = true;
       }
       if(!drawAll){
-      drawblue = false;
-      draworange = false;
-      drawpurple = false;
+      drawFrench = false;
+      drawSpanish = false;
+      drawOther = false;
       }
       break;
   case 't':
       //toggles the display of the origin and destinations
       showTowers = !showTowers;
       break;
-  case '+':
-      increment+=.0001;
-      println("speed", increment);
-      key_n();
-      break;
-  case '-':
-      increment-=.0001;
-      println("speed", increment);
-      key_n();
-      break; 
+  case 'p':
+      //toggles if lines are moving or not
+      pause = !pause;
+      break;       
   }
 }
 
 void key_n(){
-      purple.clear();
-      blue.clear();
-      orange.clear();
-      purple.clear();
-      OD.clear();
+      all.clear();
+      french.clear();
+      spanish.clear();
+      other.clear();
+      Nodes.clear();
       Network.clear();
       generate();
+      analyzer();
 
 }
