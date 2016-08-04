@@ -1,8 +1,6 @@
 //draws all the edges of the network in animation 
 void drawNetwork(ArrayList<Edge> lines){
    for(int i = 0; i<lines.size(); i++){
-           strokeWeight(lines.get(i).amount);
-           stroke(lines.get(i).language, 150);
            fill(lines.get(i).language, 150);
            lines.get(i).drawEdge();
       }
@@ -34,13 +32,11 @@ void analyzer(){
 void miniNetwork(int id){
   for(int i = 0; i<Network.get(id).edgeout.size(); i++){
       strokeWeight(Network.get(id).edgeout.get(i).amount);
-      stroke(#00ff00);
       fill(#00ff00);
       Network.get(id).edgeout.get(i).drawEdge();
     }
   for(int i = 0; i<Network.get(id).edgein.size(); i++){
       strokeWeight(Network.get(id).edgein.get(i).amount);
-      stroke(#ff0000);
       fill(#ff0000);
       Network.get(id).edgein.get(i).drawEdge();
     }

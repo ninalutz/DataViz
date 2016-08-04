@@ -22,7 +22,6 @@ Different key commands also toggle display options
 
 This script uses two classes; Node and Edge 
 
-
 */
 
 //delay between loops (in milliseconds)
@@ -31,8 +30,8 @@ int delay = 1000;
 float increment = .0005;
 
 //numbers for generating network
-int numnodes = 50;
-int numedges = 30;
+int numnodes = 10;
+int numedges = 50;
 int numClicks;
 
 //duration of animation

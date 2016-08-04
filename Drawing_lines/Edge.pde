@@ -16,6 +16,7 @@ public class Edge {
     private float increment;
     private PVector origin, destination;
     private color language; 
+    ArrayList<PVector>preps = new ArrayList<PVector>();
     int amount, type, origin_id, destination_id, id;
     
     //constructor
@@ -52,26 +53,67 @@ public class Edge {
      //there are 4 cases of lines and need to cover all 4 to preserve the orientation of going from origin to destination 
      //case 1: line moving down and right
       if(origin.x <= destination.x && origin.y <= destination.y){ //<>//
-            if(x+(millis()-initialTime)*xspeed < destination.x && y+(millis()-initialTime)*yspeed < destination.y){
-                  line(x,y,x+(millis()-initialTime)*xspeed, y + (millis()-initialTime)*yspeed); //<>//
-                  duration = int(millis()-initialTime); 
+            if(x+(millis()-initialTime)*xspeed < destination.x && y+(millis()-initialTime)*yspeed < destination.y){ //<>//
+                    PVector holddest = new PVector(x+(millis()-initialTime)*xspeed, y + (millis()-initialTime)*yspeed);
+                    PVector Bf = holddest.sub(origin);
+                    holddest = new PVector(x+(millis()-initialTime)*xspeed, y + (millis()-initialTime)*yspeed);
+                    Bf.normalize();
+                    Bf.mult(((millis()-initialTime))/(amount*10));
+                    Bf.rotate(PI/2);  
+                    PVector point1 = holddest.add(Bf);
+                    holddest = new PVector(x+(millis()-initialTime)*xspeed, y + (millis()-initialTime)*yspeed);
+                    PVector point2 = holddest.sub(Bf);
+                    
+                    triangle(origin.x, origin.y, point1.x, point1.y, point2.x, point2.y);
+                    duration = int(millis()-initialTime);                    
                }
+               
+
             else if(!needLoop){
-                  line(origin.x, origin.y, destination.x, destination.y);
+                    PVector hold = new PVector(destination.x, destination.y);
+                    PVector B = hold.sub(origin);
+                    hold = new PVector(destination.x, destination.y);
+                    B.normalize();
+                    B.mult(duration/(amount*10));
+                    B.rotate(PI/2);  
+                    PVector pointa = hold.add(B);
+                    hold = new PVector(destination.x, destination.y);
+                    PVector pointb = hold.sub(B);
+                    hold = new PVector(destination.x, destination.y);
+                   triangle(origin.x, origin.y, pointa.x, pointa.y, pointb.x, pointb.y);
                       if(millis() > initialTime+duration + delay){
                           needLoop = !needLoop;
                           }
                  }   
       }
-      
       //case 2: line moving up and right
       if(origin.x <= destination.x && origin.y >= destination.y){
             if(x+(millis()-initialTime)*xspeed < destination.x && y+(millis()-initialTime)*yspeed > destination.y){
                   line(x,y,x+(millis()-initialTime)*xspeed, y - (millis()-initialTime)*yspeed);
-                  duration = int(millis()-initialTime);
+                    PVector holddest = new PVector(x+(millis()-initialTime)*xspeed, y - (millis()-initialTime)*yspeed);
+                    PVector Bf = holddest.sub(origin);
+                    holddest = new PVector(x+(millis()-initialTime)*xspeed, y - (millis()-initialTime)*yspeed);
+                    Bf.normalize();
+                    Bf.mult(((millis()-initialTime))/(amount*10));
+                    Bf.rotate(PI/2);  
+                    PVector point1 = holddest.add(Bf);
+                    holddest = new PVector(x+(millis()-initialTime)*xspeed, y - (millis()-initialTime)*yspeed);
+                    PVector point2 = holddest.sub(Bf);
+                    triangle(origin.x, origin.y, point1.x, point1.y, point2.x, point2.y);
+                    duration = int(millis()-initialTime);
                 }
             else if(!needLoop){
-                  line(origin.x, origin.y, destination.x, destination.y);
+                  PVector hold = new PVector(destination.x, destination.y);
+                    PVector B = hold.sub(origin);
+                    hold = new PVector(destination.x, destination.y);
+                    B.normalize();
+                    B.mult(duration/(amount*10));
+                    B.rotate(PI/2);  
+                    PVector pointa = hold.add(B);
+                    hold = new PVector(destination.x, destination.y);
+                    PVector pointb = hold.sub(B);
+                    hold = new PVector(destination.x, destination.y);
+                   triangle(origin.x, origin.y, pointa.x, pointa.y, pointb.x, pointb.y);
                       if(millis() > initialTime+duration + delay){
                           needLoop = !needLoop;
                           }
@@ -81,11 +123,31 @@ public class Edge {
       //case 3: line moving left and up
       if(origin.x >= destination.x && origin.y >= destination.y){
           if(x-(millis()-initialTime)*xspeed > destination.x && y+(millis()-initialTime)*yspeed > destination.y){
-                line(x,y,x-(millis()-initialTime)*xspeed, y - (millis()-initialTime)*yspeed);
-                duration = int(millis()-initialTime);
+                //line(x,y,x-(millis()-initialTime)*xspeed, y - (millis()-initialTime)*yspeed);
+                   PVector holddest = new PVector(x-(millis()-initialTime)*xspeed, y - (millis()-initialTime)*yspeed);
+                    PVector Bf = holddest.sub(origin);
+                    holddest = new PVector(x-(millis()-initialTime)*xspeed, y - (millis()-initialTime)*yspeed);
+                    Bf.normalize();
+                    Bf.mult(((millis()-initialTime))/(amount*10));
+                    Bf.rotate(PI/2);  
+                    PVector point1 = holddest.add(Bf);
+                    holddest = new PVector(x-(millis()-initialTime)*xspeed, y - (millis()-initialTime)*yspeed);
+                    PVector point2 = holddest.sub(Bf);
+                    triangle(origin.x, origin.y, point1.x, point1.y, point2.x, point2.y);
+                    duration = int(millis()-initialTime);
                }
           else if(!needLoop){
-              line(origin.x, origin.y, destination.x, destination.y);
+                   PVector hold = new PVector(destination.x, destination.y);
+                    PVector B = hold.sub(origin);
+                    hold = new PVector(destination.x, destination.y);
+                    B.normalize();
+                    B.mult(duration/(amount*10));
+                    B.rotate(PI/2);  
+                    PVector pointa = hold.add(B);
+                    hold = new PVector(destination.x, destination.y);
+                    PVector pointb = hold.sub(B);
+                    hold = new PVector(destination.x, destination.y);
+                   triangle(origin.x, origin.y, pointa.x, pointa.y, pointb.x, pointb.y);
                   if(millis() > initialTime+duration + delay){
                       needLoop = !needLoop;
                   }
@@ -95,11 +157,30 @@ public class Edge {
       //case 4: line moving left and down
       if(origin.x >= destination.x && origin.y <= destination.y){
           if(x-(millis()-initialTime)*xspeed > destination.x && y+(millis()-initialTime)*yspeed < destination.y){
-                line(x,y,x-(millis()-initialTime)*xspeed, y + (millis()-initialTime)*yspeed);
-                duration = int(millis()-initialTime);
+                 PVector holddest = new PVector(x-(millis()-initialTime)*xspeed, y + (millis()-initialTime)*yspeed);
+                    PVector Bf = holddest.sub(origin);
+                    holddest = new PVector(x-(millis()-initialTime)*xspeed, y + (millis()-initialTime)*yspeed);
+                    Bf.normalize();
+                    Bf.mult(((millis()-initialTime))/(amount*10));
+                    Bf.rotate(PI/2);  
+                    PVector point1 = holddest.add(Bf);
+                    holddest = new PVector(x-(millis()-initialTime)*xspeed, y + (millis()-initialTime)*yspeed);
+                    PVector point2 = holddest.sub(Bf);
+                    triangle(origin.x, origin.y, point1.x, point1.y, point2.x, point2.y);
+                    duration = int(millis()-initialTime);
                 }
           else if(!needLoop){
-              line(origin.x, origin.y, destination.x, destination.y);
+              PVector hold = new PVector(destination.x, destination.y);
+                    PVector B = hold.sub(origin);
+                    hold = new PVector(destination.x, destination.y);
+                    B.normalize();
+                    B.mult(duration/(amount*10));
+                    B.rotate(PI/2);  
+                    PVector pointa = hold.add(B);
+                    hold = new PVector(destination.x, destination.y);
+                    PVector pointb = hold.sub(B);
+                    hold = new PVector(destination.x, destination.y);
+                   triangle(origin.x, origin.y, pointa.x, pointa.y, pointb.x, pointb.y);
                     if(millis() > initialTime+duration + delay){
                         needLoop = !needLoop;
                     }
@@ -109,8 +190,6 @@ public class Edge {
       if(origin.x == destination.x && origin.y == destination.y){
          ellipse(origin.x, origin.y, amount, amount);
        }
-      
-  }
 
-    
+    }
 }
