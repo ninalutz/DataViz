@@ -32,13 +32,14 @@ void analyzer(){
 }
 
 void miniNetwork(int id){
-  strokeWeight(2);
   for(int i = 0; i<Network.get(id).edgeout.size(); i++){
+      strokeWeight(Network.get(id).edgeout.get(i).amount);
       stroke(#00ff00);
       fill(#00ff00);
       Network.get(id).edgeout.get(i).drawEdge();
     }
   for(int i = 0; i<Network.get(id).edgein.size(); i++){
+      strokeWeight(Network.get(id).edgein.get(i).amount);
       stroke(#ff0000);
       fill(#ff0000);
       Network.get(id).edgein.get(i).drawEdge();

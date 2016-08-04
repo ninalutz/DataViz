@@ -31,8 +31,8 @@ int delay = 1000;
 float increment = .0005;
 
 //numbers for generating network
-int numnodes = 85;
-int numedges = 50;
+int numnodes = 50;
+int numedges = 30;
 int numClicks;
 
 //duration of animation
