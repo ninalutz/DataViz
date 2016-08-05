@@ -31,7 +31,7 @@ float increment = .0005;
 
 //numbers for generating network
 int numnodes = 10;
-int numedges = 50;
+int numedges = 30;
 int numClicks;
 
 //duration of animation

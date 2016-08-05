@@ -34,10 +34,18 @@ public class Edge {
     
     //draw lines
     public void pauseEdge(){
-      stroke(language, 250);
-      fill(language, 250);
-      strokeWeight(amount);
-        line(origin.x, origin.y, destination.x, destination.y);
+      fill(language, 150);
+      PVector hold = new PVector(destination.x, destination.y);
+      PVector B = hold.sub(origin);
+      hold = new PVector(destination.x, destination.y);
+      B.normalize();
+      B.mult(duration/(amount*10));
+      B.rotate(PI/2);  
+      PVector pointa = hold.add(B);
+      hold = new PVector(destination.x, destination.y);
+      PVector pointb = hold.sub(B);
+      hold = new PVector(destination.x, destination.y);
+     triangle(origin.x, origin.y, pointa.x, pointa.y, pointb.x, pointb.y);
             if(origin.x == destination.x && origin.y == destination.y){
                fill(language, 200);
                ellipse(origin.x, origin.y, amount, amount);
