@@ -52,6 +52,7 @@ void setup(){
 }
 
 void draw(){
+  println(needLoop);
   background(10);
   drawLegend();
   
