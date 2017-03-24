@@ -1,0 +1,218 @@
+Code,Region,Country Name
+AFG,AS,Afghanistan
+ALB,EU,Albania
+DZA,AF,Algeria
+ASM,NA,American Samoa
+ADO,EU,Andorra
+AGO,AF,Angola
+ATG,CA,Antigua and Barbuda
+ARG,SA,Argentina
+ARM,ER,Armenia
+ABW,NA,Aruba
+AUS,OC,Australia
+AUT,EU,Austria
+AZE,ER,Azerbaijan
+BHS,CA,"Bahamas, The"
+BHR,ME,Bahrain
+BGD,AF,Bangladesh
+BRB,CA,Barbados
+BLR,ER,Belarus
+BEL,EU,Belgium
+BLZ,CE,Belize
+BEN,AF,Benin
+BMU,CA,Bermuda
+BTN,AS,Bhutan
+BOL,SA,Bolivia
+BIH,EU,Bosnia and Herzegovina
+BWA,AF,Botswana
+BRA,SA,Brazil
+VGB,CA,British Virgin Islands
+BRN,ME,Brunei Darussalam
+BGR,EU,Bulgaria
+BFA,AF,Burkina Faso
+BDI,AF,Burundi
+CPV,AF,Cabo Verde
+KHM,AS,Cambodia
+CMR,AF,Cameroon
+CAN,NA,Canada
+CYM,CA,Cayman Islands
+CAF,AF,Central African Republic
+TCD,AF,Chad
+CHI,EU,Channel Islands
+CHL,SA,Chile
+CHN,AS,China
+COL,SA,Colombia
+COM,AF,Comoros
+ZAR,AF,"Congo, Dem. Rep."
+COG,AF,"Congo, Rep."
+CRI,CE,Costa Rica
+CIV,AF,Cote d'Ivoire
+HRV,EU,Croatia
+CUB,CA,Cuba
+CUW,CA,Curacao
+CYP,EU,Cyprus
+CZE,EU,Czech Republic
+DNK,EU,Denmark
+DJI,AF,Djibouti
+DMA,CA,Dominica
+DOM,CA,Dominican Republic
+ECU,SA,Ecuador
+EGY,AF,"Egypt, Arab Rep."
+SLV,CE,El Salvador
+GNQ,AF,Equatorial Guinea
+ERI,AF,Eritrea
+EST,EU,Estonia
+ETH,AF,Ethiopia
+FRO,EU,Faroe Islands
+FJI,OC,Fiji
+FIN,EU,Finland
+FRA,EU,France
+PYF,OC,French Polynesia
+GAB,AF,Gabon
+GMB,AF,"Gambia, The"
+GEO,ER,Georgia
+DEU,EU,Germany
+GHA,AF,Ghana
+GIB,EU,Gibraltar
+GRC,EU,Greece
+GRL,EU,Greenland
+GRD,CA,Grenada
+GUM,AS,Guam
+GTM,CE,Guatemala
+GIN,AF,Guinea
+GNB,AF,Guinea-Bissau
+GUY,SA,Guyana
+HTI,CA,Haiti
+HND,CE,Honduras
+HKG,AS,"Hong Kong SAR, China"
+HUN,EU,Hungary
+ISL,EU,Iceland
+IND,AS,India
+IDN,AS,Indonesia
+IRN,ME,"Iran, Islamic Rep."
+IRQ,ME,Iraq
+IRL,EU,Ireland
+IMY,EU,Isle of Man
+ISR,ME,Israel
+ITA,EU,Italy
+JAM,CA,Jamaica
+JPN,AS,Japan
+JOR,ME,Jordan
+KAZ,ER,Kazakhstan
+KEN,AF,Kenya
+KIR,OC,Kiribati
+PRK,AS,"Korea, Dem. People•À_s Rep."
+KOR,AS,"Korea, Rep."
+KSV,EU,Kosovo
+KWT,ME,Kuwait
+KGZ,ER,Kyrgyz Republic
+LAO,AS,Lao PDR
+LVA,EU,Latvia
+LBN,ME,Lebanon
+LSO,AF,Lesotho
+LBR,AF,Liberia
+LBY,AF,Libya
+LIE,EU,Liechtenstein
+LTU,EU,Lithuania
+LUX,EU,Luxembourg
+MAC,AS,"Macao SAR, China"
+MKD,EU,"Macedonia, FYR"
+MDG,AF,Madagascar
+MWI,AF,Malawi
+MYS,AS,Malaysia
+MDV,AF,Maldives
+MLI,AF,Mali
+MLT,EU,Malta
+MHL,OC,Marshall Islands
+MRT,AF,Mauritania
+MUS,AF,Mauritius
+MEX,CE,Mexico
+FSM,OC,"Micronesia, Fed. Sts."
+MDA,EU,Moldova
+MCO,EU,Monaco
+MNG,AS,Mongolia
+MNE,EU,Montenegro
+MAR,AF,Morocco
+MOZ,AF,Mozambique
+MMR,AS,Myanmar
+NAM,AF,Namibia
+NRU,OC,Nauru
+NPL,AS,Nepal
+NLD,EU,Netherlands
+NCL,OC,New Caledonia
+NZL,OC,New Zealand
+NIC,CE,Nicaragua
+NER,AF,Niger
+NGA,AF,Nigeria
+MNP,OC,Northern Mariana Islands
+NOR,EU,Norway
+OMN,ME,Oman
+PAK,AS,Pakistan
+PLW,OC,Palau
+PAN,CE,Panama
+PNG,AS,Papua New Guinea
+PRY,SA,Paraguay
+PER,SA,Peru
+PHL,AS,Philippines
+POL,EU,Poland
+PRT,EU,Portugal
+PRI,CA,Puerto Rico
+QAT,ME,Qatar
+ROM,EU,Romania
+RUS,ER,Russian Federation
+RWA,AF,Rwanda
+WSM,OC,Samoa
+SMR,EU,San Marino
+STP,AF,Sao Tome and Principe
+SAU,ME,Saudi Arabia
+SEN,AF,Senegal
+SRB,EU,Serbia
+SYC,AF,Seychelles
+SLE,AF,Sierra Leone
+SGP,AS,Singapore
+SXM,CA,Sint Maarten (Dutch part)
+SVK,EU,Slovak Republic
+SVN,EU,Slovenia
+SLB,OC,Solomon Islands
+SOM,AF,Somalia
+ZAF,AF,South Africa
+SSD,AF,South Sudan
+ESP,EU,Spain
+LKA,AS,Sri Lanka
+KNA,CA,St. Kitts and Nevis
+LCA,CA,St. Lucia
+MAF,CA,St. Martin (French part)
+VCT,CA,St. Vincent and the Grenadines
+SDN,AF,Sudan
+SUR,SA,Suriname
+SWZ,AF,Swaziland
+SWE,EU,Sweden
+CHE,EU,Switzerland
+SYR,ME,Syrian Arab Republic
+TJK,ER,Tajikistan
+TZA,AF,Tanzania
+THA,AS,Thailand
+TMP,AS,Timor-Leste
+TGO,AF,Togo
+TON,OC,Tonga
+TTO,CA,Trinidad and Tobago
+TUN,AF,Tunisia
+TUR,EU,Turkey
+TKM,ER,Turkmenistan
+TCA,CA,Turks and Caicos Islands
+TUV,OC,Tuvalu
+UGA,AF,Uganda
+UKR,ER,Ukraine
+ARE,ME,United Arab Emirates
+GBR,EU,United Kingdom
+USA,NA,United States
+URY,SA,Uruguay
+UZB,ER,Uzbekistan
+VUT,OC,Vanuatu
+VEN,SA,"Venezuela, RB"
+VNM,AS,Vietnam
+VIR,CA,Virgin Islands (U.S.)
+WBG,ME,West Bank and Gaza
+YEM,ME,"Yemen, Rep."
+ZMB,AF,Zambia
+ZWE,AF,Zimbabwe
