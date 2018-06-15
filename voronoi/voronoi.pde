@@ -1,9 +1,7 @@
-//stand alone voronoi applet by Nina Lutz
+//Simple voronoi sketch by Nina Lutz
 
 /*
 Generate random nodes and their appropriate voronoi polygons
-Colors the data points in the csv file appropriately 
-Click to redraw, can be a bit buggy, still always in progress 
 */
 
 int i = 0;
